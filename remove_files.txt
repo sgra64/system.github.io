@@ -1,0 +1,29 @@
+delete from src:
+ - deleted:    src/application/Application_E1_refactoring.java
+ - deleted:    src/application/DataFactory.java
+ - deleted:    src/application/MockDataFactoryImpl.java
+
+modify in src (replaced {@link ...} with {@code ...} for datamodel
+dependencies):
+ - modified:   src/module-info.java
+ - modified:   src/system/DataStore.java
+ - modified:   src/system/Printer.java
+ - modified:   src/system/Repository.java
+
+created empty, non-public dummy classes in system for:
+ - Customer.java, Article.java, Order.java
+
+
+javadoc -d doc $(echo ${JDK_JAVADOC_OPTIONS}) application system
+
+
+reduce output in doc:
+rm -rf doc/script-dir
+rm -rf doc/*search*
+rm -rf doc/legal
+rm -rf doc/resources doc/copy.svg doc/all*
+rm -rf doc/se1_bestellsystem/application
+rm -rf doc/element-list
+rm -rf doc/help-doc.html
+rm -rf doc/overview-tree.html
+
